@@ -81,45 +81,36 @@ class Mage extends Character
         return $status;   
     }
 
-    public function attack($target){
+    public function action($target){
         $percent = rand(0, 100);
-        if($percent<=70){
+        if($percent>70 || $this->shield){
             $stat =  $this->fireballA($target);
-        }elseif($percent>70){
-            $stat = $this->shield($target); 
+        }elseif($percent<=70){
+            $stat = $this->shield(); 
+            
         }
         return $stat;            
     }
 
-    public function shield($target){
-        if($this->shield == false){
+    public function shield(){
+        
             $this->shield = true;
             $status = "$this->name active son bouclier";
-        }elseif($this->shield == true){
-            echo "$this->name est protéger tu pourra l'attaquer au prochain tour <br>";
-            $this->shield = false;
-            $status = $this->fireballA($target);
-            echo"le Bouclier etait activer donc j'ai attaqué <br>";
-        }
+        
         return $status; 
     }
-    public function setShieldProtection(){
-    }
     
-    public function setProtection(){
-        if($this->shield == true){
-            $this->lifePoints += 0;
-            return;
-        }else{
-            $this->shield = false;
-            return;
+    public function setLifePoints($damage){
+        if(!$this->shield){
+            $this->lifePoints -= round($damage);     
+            if($this->lifePoints <=0){
+                $this->lifePoints = 0;
+            }          
         }
-        // else{
-        //     $this->setLifePoints($damage);
-        //     return;
-        // }
-        
+        $this->shield = false;
+        return;
     }
+        
 }
 
 

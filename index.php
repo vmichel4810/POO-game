@@ -23,19 +23,20 @@ spl_autoload_register(function($class){
 
 $character1 = new Mage('Magicien');
 $character2 = new Warrior('Guerrier');
+$character3 = new Warrior('Monster');
 
-while($character1->isAlive() >0 && $character2->isAlive() > 0){
+while($character1->isAlive() >0 && $character2->isAlive() > 0 && $character3->isAlive() >0){
     // if($character1->shield == true){
     //     echo "$character1->name est protéger tu pourra l'attaquer au prochain tour <br>";
     //     $character1->shield = false;
     // }else{
 
-        echo $character2->attack($character1);
+        echo $character2->action($character1);
         $status = "$character2->name à gagné !";
         echo "<br>";
     // }
     if($character1->isAlive() > 0){
-        echo $character1->attack($character2);
+        echo $character1->action($character2);
         $status = "$character1->name à gagné !";
         echo "<br>";        
     }

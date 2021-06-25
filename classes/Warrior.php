@@ -3,7 +3,7 @@
 class Warrior extends Character
 {
 
-    public function attack($target){
+    public function action($target){
 
         $target->setLifePoints($this->attackPoints);
         
