@@ -5,6 +5,7 @@ abstract class Character
     public $name;
     protected $lifePoints = 100;
     public $attackPoints = 15;
+    public $magicPoints = 100;
 
 
     Public function __construct($name){

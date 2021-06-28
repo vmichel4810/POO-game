@@ -54,9 +54,15 @@ class Mage extends Character
                                         //     // $status = "Le $this->name attaque le $target->name avec $attck  il reste $target->lifePoints points de vie au $target->name <br>";
                                         //     return $status;
                                         // }
-    public $magicPoints = 50;
-    public $attackPoints = 5;
+    // public $magicPoints = 50;
+    // public $attackPoints = 5;
     public $shield = false;
+
+    public function __construct($name){
+        parent::__construct($name);
+        $this->attackPoints /=3;
+        $this->magicPoints *=2 ;
+    }
     
     
     public function fireballA($target)
@@ -83,9 +89,9 @@ class Mage extends Character
 
     public function action($target){
         $percent = rand(0, 100);
-        if($percent>70 || $this->shield){
+        if($percent<70 || $this->shield){
             $stat =  $this->fireballA($target);
-        }elseif($percent<=70){
+        }elseif($percent>=70){
             $stat = $this->shield(); 
             
         }

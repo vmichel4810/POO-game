@@ -1,0 +1,31 @@
+body{
+    
+}
+.divBattle{
+    display: flex;
+    align-items: center;
+}
+.divBattle p {
+    width: 50%;
+}
+.warrior{
+    color: brown;
+}
+.mage{
+    color: blueviolet;
+}
+.divWin{
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.guer{
+    display: flex;
+}
+.mag{
+    display: flex;
+}
